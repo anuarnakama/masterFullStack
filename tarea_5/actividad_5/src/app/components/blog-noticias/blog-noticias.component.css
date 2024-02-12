@@ -1,12 +1,21 @@
 section{
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
+
 .formularioNoticias{
     border: 1px solid gainsboro;
     width: 40%;
-    height: auto;
+    height: 570px;
+    background-color:whitesmoke;
+}
 
+#texto{
+    height: 300px;
+    resize: none; 
 }
 
 .etiquetas{
@@ -14,8 +23,18 @@ section{
 }
 
 .campos{
-    width: 600px;
+    width: 80%;
 }
+
+
+.noticias{
+    display: flex;
+    flex-direction: column-reverse;
+    width: 55%;
+    border: 1px solid gainsboro;
+    align-items: center;
+}
+
 
 .datoInput
 {
@@ -25,4 +44,16 @@ section{
     margin-top: 10px;
     margin-bottom: 10px;
     margin-left: 10px;
+}
+
+.botonInput{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+button{
+    background-color:aliceblue;
 }

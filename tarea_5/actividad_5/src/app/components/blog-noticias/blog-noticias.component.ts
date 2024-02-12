@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { INoticia } from '../../interfaces/inoticia.interface';
 
 @Component({
   selector: 'app-blog-noticias',
@@ -10,35 +11,50 @@ import { FormsModule } from '@angular/forms';
 })
 export class BlogNoticiasComponent {
 
-  arrNoticias: any[] = []
+  arrNoticias: INoticia[] = [];
 
-  newNoticia: any = {
-    'titulo': '', 'imagen': '','texto': '', 'fecha': ''
+  newNoticia: INoticia = {
+    titulo: '', url: '', texto: ''
   };
 
 
-  constructor(){
+  ngOnInit(): void{
     this.cargarDatos();
   
     this.arrNoticias = [
-      {'titulo': 'Mi titular', 'imagen': "https://www.dongee.com/tutoriales/content/images/size/w1000/2023/01/image-32.png",'texto': 'mi texto de noticia', 'fecha': ''},
-      {'titulo': 'Mi titular2', 'imagen': "https://www.dongee.com/tutoriales/content/images/size/w1000/2023/01/image-32.png",'texto': 'mi texto de noticia2', 'fecha': ''},
+      {titulo: 'Primera noticia', url: "https://placehold.co/600x400/png", texto: 'Esta es mi primera noticia en el blog.', fecha: new Date()},
+      {titulo: 'Segunda noticia en el blog', url: "https://placehold.co/600x400/png",texto: 'Seguimos con las notcias en el blog, en este caso es la segundo', fecha: new Date()},
     ];
-}
+
+  }
+
+  constructor(){
+
+  }
 
 
   registrar(){
-    this.arrNoticias.push(this.newNoticia);
-    this.newNoticia = {
-      'titulo': '', 'imagen': '','texto': '', 'fecha': ''
-    };
+    if(this.newNoticia.titulo !== "" && this.newNoticia.url !== "" && 
+      this.newNoticia.texto !== "" && this.newNoticia.fecha !== undefined){
+      this.arrNoticias.push(this.newNoticia);
+      console.log(this.newNoticia.fecha);
+      this.newNoticia = {
+        titulo: '', url: '', texto: ''
+      };
+    }else{
+      alert("Debe de rellenar todos los campos para registrar una noticia");
+    }
   }
 
 
   cargarDatos(): string {
     let html: string = "";
-    this.arrNoticias.forEach( (element: any) => {
-      html += `<p>${element.titulo}</p>` + `<img src="${element.imagen}" />`
+    let classNoticia = "noticia";
+    this.arrNoticias.forEach( (noticia: INoticia) => {
+      html += `<article class=${classNoticia}>`+ `<h2>${noticia.titulo}</h2>` 
+      + `<p>${noticia.fecha}</p>` 
+      + `<p>${noticia.texto}</p>` 
+      + `<img src="${noticia.url}" />` + `</article>`
     })
     return html;
   }

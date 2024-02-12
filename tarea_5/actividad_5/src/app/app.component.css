@@ -2,3 +2,11 @@ section{
     margin-left: 20px;
     margin-right: 20px;
 }
+
+
+#divFooter{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
