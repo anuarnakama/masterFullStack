@@ -1,0 +1,26 @@
+<section>
+    <div class="formularioNoticias">
+        <div class="datoInput">
+            <label for="titulo" class="etiquetas">Título</label>
+            <input type="text" id="titulo" minlength="1" required placeholder="Introduce el titulo" [(ngModel)]="newNoticia.titulo" class="campos">
+        </div>
+        <div class="datoInput">
+            <label for="imagen" class="etiquetas">Imagen</label>
+            <input type="url" id="imagen" minlength="1" required placeholder="Introduce la url de la imagen" [(ngModel)]="newNoticia.imagen"  class="campos">
+        </div>
+        <div class="datoInput">
+            <label for="texto" class="etiquetas">Texto</label>
+            <input type="text" id="texto" minlength="1" required placeholder="Introduce el texto de la noticia" [(ngModel)]="newNoticia.texto" class="campos">
+        </div>
+
+        <div class="datoInput">
+            <label for="fecha" class="etiquetas">Fecha</label>
+            <input type="date" id="fecha" required placeholder="Introduce la fecha" [(ngModel)]="newNoticia.fecha" class="campos">
+        </div>
+        <button (click)="registrar()" class="datoInput">Registrar</button>
+    </div>
+
+    <div class="noticias" [innerHTML]="cargarDatos()">
+
+    </div>
+</section>

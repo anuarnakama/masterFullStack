@@ -1,0 +1,28 @@
+section{
+    display: flex;
+    justify-content: space-between;
+}
+.formularioNoticias{
+    border: 1px solid gainsboro;
+    width: 40%;
+    height: auto;
+
+}
+
+.etiquetas{
+    margin-right: 10px;
+}
+
+.campos{
+    width: 600px;
+}
+
+.datoInput
+{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
